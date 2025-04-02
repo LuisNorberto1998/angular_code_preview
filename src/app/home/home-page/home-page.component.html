@@ -1,1 +1,18 @@
-<p>home-page works!</p>
+<h1>Consulta de Pokémon</h1>
+
+<button (click)="getPokemons()">Consultar Pokémon</button>
+
+<table border="1" *ngIf="pokemons?.length">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pokemon of pokemons">
+      <td>{{ pokemon.name }}</td>
+      <td><img [src]="pokemon.image" alt="{{ pokemon.name }}" width="50"></td>
+    </tr>
+  </tbody>
+</table>
