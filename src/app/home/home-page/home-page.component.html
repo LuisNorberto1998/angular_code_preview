@@ -1,18 +1,21 @@
 <h1>Consulta de Pokémon</h1>
 
-<button (click)="getPokemons()">Consultar Pokémon</button>
+<!-- Botón con estilo de PrimeNG -->
+<p-button label="Consultar Pokémon" icon="pi pi-search" (click)="getPokemons()"></p-button>
 
-<table border="1" *ngIf="pokemons?.length">
-  <thead>
+<!-- Tabla con estilo de PrimeNG -->
+<p-table [value]="pokemons" *ngIf="pokemons?.length">
+  <ng-template pTemplate="header">
     <tr>
       <th>Nombre</th>
       <th>Imagen</th>
     </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let pokemon of pokemons">
+  </ng-template>
+
+  <ng-template pTemplate="body" let-pokemon>
+    <tr>
       <td>{{ pokemon.name }}</td>
       <td><img [src]="pokemon.image" alt="{{ pokemon.name }}" width="50"></td>
     </tr>
-  </tbody>
-</table>
+  </ng-template>
+</p-table>
